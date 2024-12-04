@@ -6,14 +6,19 @@ const app = express()//to use express you need to first call the express:
 app.set('view engine', 'ejs')
 
 //middleware:
-//Third-party middleware:
+//1.Third-party middleware:
 app.use(morgan('dev'))
-//Custom middleware:
+//2.Custom middleware:
 app.use((req, res, next) => {
     console.log("This is middleware")
     // res.send('this is middleware')
     return next()
 })
+
+//3.Built-in middleware:
+//used for read the body of request in POST method:
+app.use(express.json())
+app.use(express.urlencoded({ extends: true }))
 
 //routes:
 app.get('/', (req, res, next) => {
