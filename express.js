@@ -33,4 +33,9 @@ app.get('/about', (req, res) => {
 app.get('/contact', (req, res) => {
     res.send('Contact Page')
 })
+
+app.post('/get-form-data', (req, res) => {
+    console.log(req.body);
+    res.send("Data received")
+})
 app.listen(3000)
