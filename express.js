@@ -19,6 +19,7 @@ app.use((req, res, next) => {
 //used for read the body of request in POST method:
 app.use(express.json())
 app.use(express.urlencoded({ extends: true }))
+app.use(express.static("public"))
 
 //routes:
 app.get('/', (req, res, next) => {
