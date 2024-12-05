@@ -1,6 +1,9 @@
 const express = require('express')
 const morgan = require('morgan')//Third-party middleware:
 const app = express()//to use express you need to first call the express:
+const port = 5000
+const dbconnection = require('./config/db')//importing connection
+const userModel = require('./models/user')//importing the userModel from models:
 
 //view engine:ejs for rendering html pages
 app.set('view engine', 'ejs')
@@ -39,4 +42,6 @@ app.post('/get-form-data', (req, res) => {
     console.log(req.body);
     res.send("Data received")
 })
-app.listen(3000)
+app.listen(port, () => {
+    console.log(`listening on http://localhost:${port}`)
+})
