@@ -73,6 +73,12 @@ app.get("/get-users", (req, res) => {
         res.send(user)
     })
 })
+//3.Update:
+app.get("/update-user", async (req, res) => {
+    const user = await userModel.findOneAndUpdate({ password: 'dd' }, { email: 'dp@dp.com' })
+    res.send("User updated")
+    console.log(user)
+})
 
 
 app.listen(port, () => {
